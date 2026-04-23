@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vm-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vm-worker
+  template:
+    metadata:
+      labels:
+        app: vm-worker
+    spec:
+      containers:
+      - name: vm
+        image: ghcr.io/your-repo/ai-saas:latest
+        command: ["python", "vm/worker.py"]
+        env:
+        - name: QUEUE
+          value: "vm_jobs"
