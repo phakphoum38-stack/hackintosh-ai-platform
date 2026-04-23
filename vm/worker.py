@@ -1,15 +1,16 @@
 import redis
 import json
+import subprocess
 
-r = redis.Redis()
+r = redis.Redis(host="redis", port=6379, decode_responses=True)
 
-def run_vm(config):
+def run_qemu(config):
 
+    # mock VM boot
     return {
-        "log": "boot success",
-        "success": 1
+        "success": 1,
+        "log": "boot success"
     }
-
 
 def loop():
 
@@ -20,6 +21,9 @@ def loop():
         _, raw = job
         config = json.loads(raw)
 
-        result = run_vm(config)
+        result = run_qemu(config)
 
-        r.lpush("vm_results", json.dumps(result))
+        r.lpush("vm_results", json.dumps({
+            "config": config,
+            "result": result
+        }))
