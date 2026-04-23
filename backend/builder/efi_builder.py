@@ -1,3 +1,5 @@
+# backend/builder/efi_builder.py
+
 import os
 import json
 from builder.kext_resolver import resolve_kexts
