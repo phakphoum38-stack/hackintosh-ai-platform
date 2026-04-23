@@ -1,7 +1,7 @@
 import torch
 from torch.utils.data import DataLoader, TensorDataset
-from core.model import BootModel
-from core.dataset import load_dataset
+from backend.core.model import BootModel
+from backend.core.dataset import load_dataset
 
 def train():
 
