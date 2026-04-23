@@ -1,5 +1,10 @@
-from core.queue import push_job
+from backend.core.queue import push_job
 
-def submit_job(config):
+def submit_job(config: dict):
+
     push_job(config)
-    return {"status": "queued"}
+
+    return {
+        "status": "queued",
+        "config": config
+    }
