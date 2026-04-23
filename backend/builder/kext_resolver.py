@@ -1,3 +1,5 @@
+# backend/builder/kext_resolver.py
+
 def resolve_kexts(config):
 
     cpu = config.get("cpu", "")
