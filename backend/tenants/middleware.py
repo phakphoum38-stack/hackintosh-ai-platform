@@ -1,5 +1,5 @@
 from fastapi import Request
 
-async def get_tenant(request: Request):
+def get_tenant_id(request: Request):
 
     return request.headers.get("X-Tenant-ID")
