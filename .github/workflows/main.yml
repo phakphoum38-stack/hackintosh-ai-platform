@@ -59,4 +59,4 @@ jobs:
       with:
         name: EFI
         path: EFI/
-        path: EFI/
+        
